@@ -7,7 +7,7 @@ import os
 # Load Binance API keys from environment variables
 binance = ccxt.binance({
     'apiKey': os.getenv('BINANCE_API_KEY'),
-    'secret':osgetenv('BINANCE_SECRET_KEY'),
+    'secret':os.getenv('BINANCE_SECRET_KEY'),
     'options': {'defaultType': 'spot'}
 })
 
