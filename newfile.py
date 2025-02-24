@@ -7,8 +7,12 @@ import os
 # Load Binance API keys from environment variables
 binance = ccxt.binance({
     'apiKey': os.getenv('BINANCE_API_KEY'),
-    'secret':os.getenv('BINANCE_SECRET_KEY'),
-    'options': {'defaultType': 'spot'}
+    'secret': os.getenv('BINANCE_SECRET_KEY'),
+    'options': {'defaultType': 'spot'},
+    'proxies': {
+        'http': f"http://{os.getenv('NORDVPN_USERNAME')}:{os.getenv('NORDVPN_PASSWORD')}@{os.getenv('NORDVPN_PROXY_IP')}:{os.getenv('NORDVPN_PROXY_PORT')}",
+        'https': f"http://{os.getenv('NORDVPN_USERNAME')}:{os.getenv('NORDVPN_PASSWORD')}@{os.getenv('NORDVPN_PROXY_IP')}:{os.getenv('NORDVPN_PROXY_PORT')}",
+    }
 })
 
 # Trading parameters
